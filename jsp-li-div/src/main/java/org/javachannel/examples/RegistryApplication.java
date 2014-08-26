@@ -1,8 +1,8 @@
-package org.javachannel.examples.jspdivli;
+package org.javachannel.examples;
 
 /*
  * #%L
- * jsp-div-li
+ * jsp-li-div
  * $Id:$
  * $HeadURL:$
  * %%
@@ -22,14 +22,10 @@ package org.javachannel.examples.jspdivli;
  * #L%
  */
 
-import java.io.PrintStream;
+import javax.ws.rs.ApplicationPath;
+import javax.ws.rs.core.Application;
 
-public class Greeter {
-    public void greet(PrintStream to, String name) {
-        to.println(createGreeting(name));
-    }
+@ApplicationPath("registry")
+public class RegistryApplication extends Application {
 
-    public String createGreeting(String name) {
-        return "Hello, " + name + "!";
-    }
 }

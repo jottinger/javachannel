@@ -37,7 +37,7 @@ import java.sql.SQLException;
 
 @WebServlet(name = "example", urlPatterns = "/exampleservlet")
 public class ExampleServlet extends HttpServlet {
-    @Resource(name = "java:comp/env/jdbc/hsqldb")
+    @Resource(name = "java:comp/env/jdbc/database")
     DataSource dataSource;
 
     @Override

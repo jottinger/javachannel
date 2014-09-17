@@ -17,13 +17,11 @@
 -->
 <!-- The contents of this file will be loaded for each web application -->
 <Context>
-    <Resource name="jdbc/hsqldb" auth="Container" type="javax.sql.DataSource"
-              maxTotal="100" maxIdle="30" maxWaitMillis="10000"
-              username="sa" password="" driverClassName="org.hsqldb.jdbcDriver"
+    <Resource name="jdbc/database" auth="Container"
+              type="javax.sql.DataSource"
+              maxTotal="100" maxIdle="30"
+              maxWaitMillis="10000"
+              username="sa" password=""
+              driverClassName="org.hsqldb.jdbcDriver"
               url="jdbc:hsqldb:mem:testdb"/>
-    <ResourceLink
-            name="jdbc/hsqldb"
-            global="jdbc/hsqldb"
-            type="javax.sql.DataSource"
-            />
 </Context>

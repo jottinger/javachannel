@@ -5,6 +5,10 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * Reference counting to detect root nodes.
+ * Algorithm by Greyson Ottinger, age 12.
+ */
 public class RefCountGraph implements GraphUtility {
   @Override
   public Set<Integer> findRoots(Integer[][] graph) {

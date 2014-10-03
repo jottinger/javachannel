@@ -10,6 +10,7 @@
     <modules>
         <module>getresources</module>
         <module>jsp-div-li</module>
+        <module>integration-test-example</module>
     </modules>
     <packaging>pom</packaging>
 

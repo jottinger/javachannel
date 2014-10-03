@@ -1,6 +1,6 @@
 package org.javachannel.tests;
 
-import org.javachannel.RootFinder;
+import org.javachannel.SimpleGraph;
 import org.testng.annotations.Test;
 
 import java.util.Set;
@@ -11,8 +11,8 @@ public class SimpleRootDetection {
   @Test
   public void findRoots() {
     DataBuilder builder = new DataBuilder();
-    RootFinder rootFinder = new RootFinder();
-    Set<Integer> roots = rootFinder.findRoots(DataBuilder.getGraph());
+    SimpleGraph simpleGraph = new SimpleGraph();
+    Set<Integer> roots = simpleGraph.findRoots(DataBuilder.getGraph());
     Set<Integer> validRoots = builder.asSet(DataBuilder.getRoots());
     assertEquals(validRoots, roots);
   }

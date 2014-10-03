@@ -14,7 +14,7 @@ public class RefCountGraph implements GraphUtility {
     Map<Integer, Integer> references = new HashMap<>();
     for (Integer[] data : graph) {
       references.computeIfAbsent(data[0], d -> 0);
-      references.merge(data[1], 1, (k, v) -> 1);
+      references.put(data[1], 1);
     }
     references.entrySet().stream()
         .filter(e -> (e.getValue() == 0)).forEach(e -> roots.add(e.getKey()));

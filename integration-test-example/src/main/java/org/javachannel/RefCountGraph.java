@@ -13,13 +13,6 @@ public class RefCountGraph implements GraphUtility {
     Set<Integer> roots = new HashSet<>();
     Map<Integer, Integer> references = new ConcurrentHashMap<>();
 
-/*    BinaryOperator<Integer[]> op = (ignored, datum) -> {
-      references.computeIfAbsent(datum[0], d -> 0);
-      references.put(datum[1], 1);
-
-      return datum;
-    };
-*/
     Arrays.parallelPrefix(graph, (ignored, datum) -> {
       references.computeIfAbsent(datum[0], d -> 0);
       references.put(datum[1], 1);

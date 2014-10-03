@@ -26,7 +26,7 @@ public class TestSimpleGraph {
     System.out.println(wrapper);
   }
 
-  @Test(invocationCount = 2000)
+  @Test(invocationCount = 100)
   public void secondTest() {
     TimingWrapper wrapper = new TimingWrapper();
     Integer[][] graph = new Integer[620000][];

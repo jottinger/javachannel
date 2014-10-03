@@ -26,7 +26,7 @@ public class TestReferenceGraph {
 
   long sum = 0;
 
-  @Test(invocationCount = 2000)
+  @Test(invocationCount = 100)
   public void secondTest() {
     TimingWrapper wrapper = new TimingWrapper();
     Integer[][] graph = new Integer[620000][];

@@ -1,9 +1,6 @@
 package org.javachannel;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Reference counting to detect root nodes.
@@ -14,10 +11,21 @@ public class RefCountGraph implements GraphUtility {
   public Set<Integer> findRoots(Integer[][] graph) {
     Set<Integer> roots = new HashSet<>();
     Map<Integer, Integer> references = new HashMap<>();
-    for (Integer[] data : graph) {
-      references.computeIfAbsent(data[0], d -> 0);
-      references.put(data[1], 1);
-    }
+
+/*    BinaryOperator<Integer[]> op = (ignored, datum) -> {
+      references.computeIfAbsent(datum[0], d -> 0);
+      references.put(datum[1], 1);
+
+      return datum;
+    };
+*/
+    Arrays.parallelPrefix(graph, (ignored, datum) -> {
+      references.computeIfAbsent(datum[0], d -> 0);
+      references.put(datum[1], 1);
+
+      return datum;
+    });
+
     references.entrySet().stream()
         .filter(e -> (e.getValue() == 0)).forEach(e -> roots.add(e.getKey()));
     return roots;

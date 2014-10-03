@@ -11,6 +11,14 @@ public interface GraphUtility {
     return set;
   }
 
+  public default Set<Integer> findRoots(Integer[][] graph) {
+    int[][] primitiveGraph=new int[graph.length][];
+    for(int i=0;i<graph.length;i++) {
+      primitiveGraph[i]=new int[]{graph[i][0], graph[i][1]};
+    }
+    return findRoots(primitiveGraph);
+  }
+
   public default Set<Integer> findRoots(int[][] graph) {
     Set<Integer> roots = new HashSet<>();
     Set<Integer> leaves = new HashSet<>();

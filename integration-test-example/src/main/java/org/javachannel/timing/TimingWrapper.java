@@ -15,6 +15,15 @@ public class TimingWrapper {
     return set;
   }
 
+  public Set<Integer> time(Function<Integer[][], Set<Integer>> findRoots, Integer[][] graph) {
+    Set<Integer> set;
+    long start=System.nanoTime();
+    set=findRoots.apply(graph);
+    long end=System.nanoTime();
+    elapsedTime=end-start;
+    return set;
+  }
+
   @Override
   public String toString() {
     return "TimingWrapper{" +

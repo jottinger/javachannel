@@ -29,9 +29,9 @@ public class TestSimpleGraph {
   @Test(invocationCount = 2000)
   public void secondTest() {
     TimingWrapper wrapper = new TimingWrapper();
-    int[][] graph = new int[620000][];
-    for (int i = 0; i < 620000; i++) {
-      graph[i] = new int[]{r.nextInt(7000), r.nextInt(7000)};
+    Integer[][] graph = new Integer[620000][];
+    for (Integer i = 0; i < 620000; i++) {
+      graph[i] = new Integer[]{r.nextInt(7000), r.nextInt(7000)};
     }
     //Set<Integer> knownRoots = util.arrayToSet(new int[]{0, 4});
     Set<Integer> roots = wrapper.time(util::findRoots, graph);

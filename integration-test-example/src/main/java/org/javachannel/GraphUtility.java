@@ -23,13 +23,10 @@ public interface GraphUtility {
   }
 
   public default Set<Integer> findRoots(int[][] graph) {
-    Set<Integer> roots = new HashSet<>();
-    Set<Integer> leaves = new HashSet<>();
-    Arrays.stream(graph).forEach(d -> {
-      roots.add(d[0]);
-      leaves.add(d[1]);
-    });
-    roots.removeAll(leaves);
-    return roots;
+    Integer[][] wrappedGraph = new Integer[graph.length][];
+    for (int i = 0; i < graph.length; i++) {
+      wrappedGraph[i] = new Integer[]{graph[i][0], graph[i][1]};
+    }
+    return findRoots(wrappedGraph);
   }
 }
